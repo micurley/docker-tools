@@ -1,0 +1,11 @@
+{
+  "first_name": "<change this>",
+  "last_name": "<change this>",
+  "email": "<change this>",
+  "project_name": "<change this>",
+  "project_slug": "{{ cookiecutter.project_name|slugify }}",
+  "docker_hub_repository": "{{ cookiecutter.username }}/{{ cookiecutter.project_slug }}",
+
+  "_extensions": ["cookiecutter.extensions.SlugifyExtension"],
+  "_copy_without_render": []
+}

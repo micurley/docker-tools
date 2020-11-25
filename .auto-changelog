@@ -1,0 +1,12 @@
+{
+  "template": "keepachangelog",
+  "unreleased": true,
+  "commitLimit": false,
+  "releaseSummary": true,
+  "issueUrl": "https://komodohealth.atlassian.net/browse/{id}",
+  "issuePattern": "[a-zA-Z]+-\\d+",
+  "breakingPattern": "BREAKING CHANGE:",
+  "replaceText": {
+    "\\[([a-zA-Z]+-\\d+)\\]": "[`$1`](https://komodohealth.atlassian.net/browse/$1)"
+  }
+}
