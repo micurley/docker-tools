@@ -1,19 +1,17 @@
 [tool.poetry]
-name = "Dependency Converter"
+name = "dephell"
 version = "0.1.0"
 description = "https://dephell.readthedocs.io/index.html"
 authors = ["Morgan Curley <morgan.curley@gmail.com>"]
-license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-dephell = {extras = ["full"], version = "^0.8.3"}
-
-[tool.poetry.dev-dependencies]
+dephell = "^0.8.3"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
 
 [tool.black]
 line-length = 120

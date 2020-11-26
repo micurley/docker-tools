@@ -3,14 +3,15 @@ LABEL maintainer="morgan.curley@gmail.com"
 LABEL version="<version>"
 
 RUN apt-get update -y && \
-  apt-get upgrade -y
+  apt-get upgrade -y && \
+  apt-get install -y vim bash git
 
 RUN pip install --upgrade pip
-RUN pip install poetry
+RUN pip install dephell[full]
 
-ADD common/entrypoint.sh ./
-
-COPY ./dephell/pyproject.toml ./dephell/poetry.* ./
+COPY common/entrypoint.sh ./dephell/image_init.* /
+COPY common/entrypoint.sh /entrypoint.sh
+RUN chmod ugo+x /entrypoint.sh
 
 # This is formatted like this so if `.dephell/startup` does not exist
 # the docker build will not fail
@@ -22,5 +23,5 @@ COPY ./dephell /repo
 
 WORKDIR /repo
 
-ENTRYPOINT ['/bin/bash', "/entrypoint.sh"]
-CMD ['/bin/bash', 'init.sh']
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/bash", "/image_init.sh"]
