@@ -4,13 +4,13 @@ LABEL version="<version>"
 
 RUN apt-get update -y && \
   apt-get upgrade -y && \
-  apt-get install vim bash git
+  apt-get install -y vim bash git
 
 RUN pip install --upgrade pip
 RUN pip install poetry
 
-ADD common/entrypoint.sh ./
-ADD entrypoint.sh ./
+COPY common/entrypoint.sh ./{{ cookiecutter.project_slug }/image_init.* /
+RUN chmod ugo+x /entrypoint.sh
 
 # This is formatted like this so if `.{{ cookiecutter.project_slug }}/startup` does not exist
 # the docker build will not fail
@@ -24,5 +24,5 @@ WORKDIR /repo
 
 RUN poetry config virtualenvs.create false && poetry install
 
-ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
-CMD ["/bin/bash", "init.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/bash", "image_init.sh"]

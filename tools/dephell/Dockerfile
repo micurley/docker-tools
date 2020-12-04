@@ -10,7 +10,6 @@ RUN pip install --upgrade pip
 RUN pip install dephell[full]
 
 COPY common/entrypoint.sh ./dephell/image_init.* /
-COPY common/entrypoint.sh /entrypoint.sh
 RUN chmod ugo+x /entrypoint.sh
 
 # This is formatted like this so if `.dephell/startup` does not exist
