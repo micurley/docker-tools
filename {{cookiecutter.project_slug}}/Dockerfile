@@ -9,7 +9,7 @@ RUN apt-get update -y && \
 RUN pip install --upgrade pip
 RUN pip install poetry
 
-COPY common/entrypoint.sh ./{{ cookiecutter.project_slug }/image_init.* /
+COPY common/entrypoint.sh ./{{ cookiecutter.project_slug }}/image_init.* /
 RUN chmod ugo+x /entrypoint.sh
 
 # This is formatted like this so if `.{{ cookiecutter.project_slug }}/startup` does not exist
