@@ -1,4 +1,4 @@
-FROM python:3.8-buster
+FROM morgancurleykh/python3.8-focal
 LABEL maintainer="{{ cookiecutter.email }}"
 LABEL version="<version>"
 
